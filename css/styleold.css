@@ -1,0 +1,273 @@
+body {
+    margin: 0;
+    background: linear-gradient(to right, #11998e, #38ef7d);
+}
+body {
+    overflow-x: hidden;
+}
+
+#navbox {
+    background-color: #2c3e50;
+}
+
+nav {
+    margin-left: 2%;
+    margin-right: 2%;
+    background-color: #EFEFBB;
+}
+
+.navbar-brand {
+    font-family: 'Grand Hotel', cursive;
+    font-style: italic;
+    font-size: x-large;
+    margin-left: -20px;
+}
+
+.nav-item {
+    font-size: 23px;
+}
+
+@media only screen and (max-width: 1050px) {
+    .nav-item {
+        margin-left: 10px;
+    }
+}
+.card {
+    margin-top: 80px;
+}
+
+.card {
+    height: 26rem
+}
+
+.card-img-top {
+    height: 230px;
+    width: 500px;
+}
+
+.sv {
+    display: block;
+}
+
+.sd {
+    display: block;
+}
+
+.hbk {
+    display: block;
+}
+
+.t {
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+
+ul.topnav li {
+    float: left;
+}
+
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 28px 16px;
+    text-decoration: none;
+}
+
+ul.topnav li a:hover:not(.active) {
+    background-color: #111;
+    height: 80px;
+}
+
+ul.topnav li a.active {
+    background-color: #4CAF50;
+    height: 80px;
+}
+
+ul.topnav li.right {
+    float: right;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table td,
+th {
+    border: 1px solid rgba(54, 151, 41, 0.979);
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 243, 132, 0.425);
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button {
+    background-color: #00fd0d67;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.dropbtn {
+    background-color: #b9ffbc;
+    color: rgb(0, 0, 0);
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #b9ffbc;
+    min-width: 500px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: rgb(255, 243, 132);
+}
+
+h2 {
+    padding: 5px;
+    color: white;
+    font-size: 30px;
+    border: none;
+    text-align: center;
+    margin: 4px 2px;
+}
+
+.tm-exp1 {
+    height: 500px;
+    width: 2000px;
+    padding: 10px;
+    margin: 20px 0 0 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.carimage1 {
+    height: 400px;
+    width: 600px;
+    float: left;
+    margin: 40px;
+}
+
+.p1 {
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+.tm-exp2 {
+    height: 500px;
+    width: 2000px;
+    padding: 10px;
+}
+
+.carimage2 {
+    height: 400px;
+    width: 600px;
+    float: left;
+    margin: 40px;
+}
+
+.p2 {
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+.tm-exp3 {
+    height: 500px;
+    width: 2000px;
+    padding: 10px;
+}
+
+.carimage3 {
+    height: 400px;
+    width: 600px;
+    float: left;
+    margin: 40px;
+}
+
+.p3 {
+    font-size: 30px;
+    font-family: sans-serif;
+}
+
+#ih {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+
+/*Footer*/
+
+#footer {
+    text-align: center;
+}
+
+.social-icon {
+    margin: 20px 10px;
+}
+
+.btn {
+    -webkit-border-radius: 6;
+    -moz-border-radius: 6;
+    border-radius: 6px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 32px;
+    background: #b37430;
+    padding: 10px 20px 10px 20px;
+    border: solid #5e5e5e 10px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
