@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Attendance</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.7.4"></script>
+    <script src="./face-api.min.js"></script>
+    <style>
+        #video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+    </style>
+</head>
+<body>
+    <div id="video-container">
+        <video autoplay muted loop id="myVideo">
+          <source src="../ink-67358.mp4" type="video/mp4">
+        </video>
+      </div><center>
+    <h1 style="color: orangered;">Student Face ID Registration</h1>
+    <input type="text" id="student_id" placeholder="Enter student ID">
+    <video id="video" width="720" height="560" autoplay muted playsinline></video>
+    <button id="capture">Capture Face Encoding</button>
+</center>
+    <script>
+        (async function() {
+            const video = document.getElementById('video');
+            const captureButton = document.getElementById('capture');
+        
+            // Load the face detection and face recognition models
+            await faceapi.nets.tinyFaceDetector.loadFromUri('/smartAtt/test/models');
+            await faceapi.nets.faceLandmark68Net.loadFromUri('/smartAtt/test/models');
+            await faceapi.nets.faceRecognitionNet.loadFromUri('/smartAtt/test/models');
+        
+            // Start the webcam stream
+            navigator.mediaDevices.getUserMedia({ video: {} })
+                .then((stream) => {
+                    video.srcObject = stream;
+                });
+        
+            captureButton.addEventListener('click', async () => {
+                const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
+                    .withFaceLandmarks()
+                    .withFaceDescriptors();
+        
+                if (detections.length > 0) {
+                    // Get the first face's descriptor (encoding)
+                    const faceEncoding = detections[0].descriptor;
+        
+                    // Convert the encoding to a JSON string
+                    const faceEncodingJSON = JSON.stringify(faceEncoding);
+        
+                    // Get the student ID from the input field
+                    const studentID = document.getElementById('student_id').value;
+                    console.log(studentID, faceEncodingJSON);
+
+                    // Insert the face encoding data into the database
+                    insertEncoding(studentID, faceEncodingJSON);
+                    console.log(studentID, faceEncodingJSON);
+                } else {
+                    console.log('No faces detected');
+                }
+            });
+        })();
+        
+function insertEncoding(studentID, encodingData) {
+    const formData = new FormData();
+    formData.append('student_id', studentID);
+    formData.append('encoding', encodingData);
+
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+    if (this.readyState === XMLHttpRequest.DONE) {
+        if (this.status === 200) {
+            const response = JSON.parse(this.responseText);
+            console.log(response.message);
+            alert(response.message); // show success message
+        } else {
+            console.error('Error uploading data:', JSON.parse(this.responseText));
+        }
+    }
+};
+
+    xhr.open('POST', 'insert_encoding.php', true);
+    xhr.send(formData);
+}
+
+        </script>
+        
+</body>
+</html>
